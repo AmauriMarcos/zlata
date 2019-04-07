@@ -1,0 +1,218 @@
+body{
+    font-family: 'Montserrat', sans-serif;
+}
+
+.titulo{
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: bold;
+    font-size:5rem;
+    color: #f17e7e;
+}
+
+.sub-titulo{
+    font-weight: bolder;
+    color: #21aa93;
+}
+.chamada{
+    font-size: 1.5rem;
+    color: #21aa93;
+}
+
+#title{
+    /* background-color: #00d0de; */
+    background-color: #9bf2e9;
+    
+}
+
+.container-fluid{
+    padding: 3% 15% 3%;
+}
+
+.container-nav{
+    padding: 0;
+}
+
+.navbar{   
+    padding: 0 0 4.5rem ;
+    background-color:  #9bf2e9 !important;
+}
+
+.nav-item{
+    padding: 0 18px;
+    font-size: 18px;
+}
+
+.nav-item:hover{
+    color: #f17e7e;
+}
+.container-nav{
+    padding: 0;
+}
+
+.books{
+    width: 500px;
+    height: 500px;
+    position: relative;
+    bottom: 100px;
+    left: 20px;
+}
+
+.fas{
+    color: #f17e7e;
+}
+
+.navbar-light .navbar-nav .nav-link{
+    color: #21aa93;
+}
+
+.btn{
+    margin-top: 20px;
+}
+
+/* Passo a Passo */
+
+#passos{
+    padding: 5% 15%;
+}
+
+.passosContent{
+    text-align: center;
+    padding: 5%;
+}
+
+.passo-titulo{
+    font-size: 2.4rem;
+    font-weight: bold;
+    font-family: 'Ubuntu', sans-serif;
+    
+}
+
+.passosContent p{
+    line-height: 1.2;
+    font-size: 1.2rem;
+    color: #8f8f8f;
+}
+
+.passosContent i{
+    margin: 2rem 0;
+}
+
+.passosContent i:hover{
+    font-size:3rem;
+    color: #ff4c68;
+}
+
+/* Lados*/
+
+#lados{
+    padding: 5% 15%;
+}
+
+.chamada-study{
+    text-align: center;
+    margin-left: 60px;
+}
+
+.tituloChamada{
+    font-size: 2.4rem;
+    font-weight: bold;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.conteudoChamada{
+    margin-top: 30px;
+    line-height: 1.5;
+    font-size: 1.2rem;
+    color: #8f8f8f;
+}
+
+.img-study{
+    box-shadow: 9px 7px 5px rgba(50, 50, 50, 0.77);
+}
+
+.img-test{
+    width: 443px;
+    height: 335px;
+    box-shadow: 9px 7px 5px rgba(50, 50, 50, 0.77);
+}
+
+.test-row{
+    margin-top: 150px;
+}
+
+.chamada-test{
+    text-align: center;
+    margin-right: 60px;
+}
+
+.vagas{
+    margin-top: 100px;
+}
+
+.img-vagas{
+    width: 443px;
+    height: 385px;
+    box-shadow: 9px 7px 5px rgba(50, 50, 50, 0.77);
+}
+
+.chamada-vagas{
+    text-align: center;
+    margin-left: 60px;
+    margin-top: 50px;
+}
+
+/* Planos */
+
+#planos{
+    background-color: #9bf2e9;
+    padding: 5% 15%;
+}
+
+.titulo-precos{
+    line-height: 1.4;
+    font-size: 4rem;
+    font-weight: bold;
+    text-align: center;
+    font-family: 'Ubuntu', sans-serif;
+    color: #21aa93;
+}
+
+.card-body h2{
+    line-height: 1.4;
+    font-size: 4rem;
+    font-weight: bold;
+    text-align: center;
+    font-family: 'Ubuntu', sans-serif;
+    color: #f17e7e;
+}
+.content-precos{
+    text-align: center;
+    font-family: 'Ubuntu', sans-serif;
+    color: #21aa93;
+    font-size: 1.7rem;
+}
+
+.card-body p{
+    text-align: center;
+    font-family: 'Ubuntu', sans-serif;
+    color: #21aa93;
+    font-size: 1.2rem;
+}
+
+h3{
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2rem;
+    color: #fff;
+}
+
+.card-header{
+    background: #1f1d1c;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #ff5e62, #ff9966);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #ff5e62, #ff9966); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */    
+    padding: 20px 3px;
+}
+
+.row-preco{
+    margin-top: 7%;
+}
