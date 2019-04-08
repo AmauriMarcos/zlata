@@ -62,7 +62,14 @@ body{
 }
 
 .navbar-light .navbar-nav .nav-link{
+    color: #f17e7e;
+    font-size: 1.2rem;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.navbar-light .navbar-nav .nav-link:hover{
     color: #21aa93;
+
 }
 
 .btn{
@@ -108,10 +115,6 @@ body{
     padding: 5% 15%;
 }
 
-.chamada-study{
-    text-align: center;
-    margin-left: 60px;
-}
 
 .tituloChamada{
     font-size: 2.4rem;
@@ -128,38 +131,48 @@ body{
 
 .img-study{
     box-shadow: 9px 7px 5px rgba(50, 50, 50, 0.77);
+    margin-right: 20px;
+}
+
+.chamada-study{
+    text-align: left;
+    margin-left: 60px;
 }
 
 .img-test{
     width: 443px;
     height: 335px;
     box-shadow: 9px 7px 5px rgba(50, 50, 50, 0.77);
-}
-
-.test-row{
-    margin-top: 150px;
+    margin-left: 20px;
 }
 
 .chamada-test{
-    text-align: center;
+    text-align: left;
     margin-right: 60px;
-}
-
-.vagas{
-    margin-top: 100px;
 }
 
 .img-vagas{
     width: 443px;
     height: 385px;
     box-shadow: 9px 7px 5px rgba(50, 50, 50, 0.77);
+    margin-left: 20px;
 }
 
 .chamada-vagas{
-    text-align: center;
+    text-align: left;
     margin-left: 60px;
     margin-top: 50px;
 }
+
+.test-row{
+    margin-top: 150px;
+}
+
+.vagas{
+    margin-top: 100px;
+}
+
+
 
 /* Planos */
 
@@ -215,4 +228,71 @@ h3{
 
 .row-preco{
     margin-top: 7%;
+}
+
+
+/* Contato */
+
+#contato{
+    padding: 7% 15%;
+}
+
+.maps{
+    /* width: 600px;
+    height: 520px; */
+    margin-left: 80px;
+    position: relative;
+    bottom: 100px;
+}
+
+.contato-titulo{
+    font-size: 3rem;
+    font-weight: bold;
+    font-family: 'Ubuntu', sans-serif;
+    margin-bottom: 50px;
+}
+
+.contato-content{
+    line-height: 1.5;
+    font-size: 1.2rem;
+    color: #8f8f8f;
+}
+
+span{
+    font-weight: bold;
+}
+
+/* Footer */
+
+#footer{
+    padding: 4% 15%;
+    background-color:  #000;
+}
+
+ul{
+    text-align: center;
+    }  
+
+ul li {
+    display:inline-block;
+    list-style-type:none;
+}
+
+ul li a {
+    border-bottom: none;
+    }
+
+.fab {
+    margin-right: 40px;
+    color: #f17e7e;
+}
+
+.fab:hover{
+    color:#fed0d3;
+
+}
+
+footer{
+    text-align: center;
+    color: #8f8f8f;
 }
