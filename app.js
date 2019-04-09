@@ -14,23 +14,24 @@ mongoose.connect('mongodb://localhost:27017/onePage', {useNewUrlParser: true});
 const quizSchema = new mongoose.Schema(
     {
         question: String,
-        answers : [
-            {first: String},
-            {second: String},
-            {third: String}
-        ]
+        firstOption : String,
+        secondOption : String,
+        thirdOption : String
     }
 );
 
 const Quiz = mongoose.model('Quiz', quizSchema);
 
-// Quiz.create({question: 'Onde tem mais mosquitos?'},
-//            {answers: [{first :'Chile'},
-//                       {second:'Sérvia'}, 
-//                        {third:'Brasil'}] }, (err) => {
-//                            err ? console.log(err) : console.log('Succesfully added to onePageDB');
-//                        });
-
+// Quiz.create({question: 'When do you study?', 
+//               firstOption:'at school',
+//               secondOption:'in the evenings',
+//               thirdOption:'in the library'}, (err) => {
+//                 if(err){
+//                     console.log(err);
+//                 }else{
+//                     console.log('Succesfully created a new question!');
+//                 }
+//  });
 
 
 
@@ -45,13 +46,8 @@ app.get('/nivelamento', (req, res) => {
         if (err){
             console.log(err);
         } else {  
-            for(var i = 0; i < allQuizzes.length; i++){
-                const answer  = allQuizzes[i][1];
-                console.log(answer);
-            };                       
-            
 
-           res.render('nivelamento', {questions: allQuizzes});
+           res.render('nivelamento', {allQuizzes: allQuizzes});
         };
     });
 });

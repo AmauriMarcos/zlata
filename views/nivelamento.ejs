@@ -57,25 +57,25 @@
     <section class="nivelamento" id="nivelamento">
         <div class="container">
             <h2 class="nivelamento-titulo">Test your English!</h2>
-           <% questions.forEach((quiz) =>{ %>
+           <% allQuizzes.forEach((quiz) =>{ %>
                 <h4> <%= quiz.question %></h4>
 
                     <div class="form-check">
                         <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
                         <label class="form-check-label" for="exampleRadios1">
-                            <%= quiz.answers[0] %>
+                            <%= quiz.firstOption %>
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option2" checked>
                         <label class="form-check-label" for="exampleRadios1">
-                            <%= quiz.answers[1] %>
+                            <%= quiz.secondOption %>
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option3" checked>
                         <label class="form-check-label" for="exampleRadios1">
-                            <%= quiz.answers[2] %>
+                            <%= quiz.thirdOption %>
                         </label>
                    </div>              
             <% }); %>   
