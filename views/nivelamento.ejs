@@ -28,16 +28,16 @@
                       <div class="collapse navbar-collapse" id="navbarSupportedContent">
                           <ul class="navbar-nav mr-auto">
                             <li class="nav-item">
-                              <a class="nav-link" href="#">Sobre mim</a>
+                              <a class="nav-link" href="/">Sobre mim</a>
                             </li>
                             <li class="nav-item">
-                              <a class="nav-link itens-deslocaveis" href="#planos">Planos</a>
+                              <a class="nav-link itens-deslocaveis" href="/#planos">Planos</a>
                             </li>
                             <li class="nav-item">
                               <a class="nav-link itens-deslocaveis" href="/nivelamento">Nivelamento</a>
                             </li>   
                             <li class="nav-item">
-                                <a class="nav-link itens-deslocaveis" href="#contato">Contato</a>
+                                <a class="nav-link itens-deslocaveis" href="/#contato">Contato</a>
                             </li>                                            
                           </ul> 
                           <ul class="navbar-nav ml-auto">
@@ -53,3 +53,33 @@
                 </nav>
           </div>
       </section>
+
+    <section class="nivelamento" id="nivelamento">
+        <div class="container">
+            <h2 class="nivelamento-titulo">Test your English!</h2>
+           <% questions.forEach((quiz) =>{ %>
+                <h4> <%= quiz.question %></h4>
+
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+                        <label class="form-check-label" for="exampleRadios1">
+                            <%= quiz.answers[0] %>
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+                        <label class="form-check-label" for="exampleRadios1">
+                            <%= quiz.answers[1] %>
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+                        <label class="form-check-label" for="exampleRadios1">
+                            <%= quiz.answers[2] %>
+                        </label>
+                   </div>              
+            <% }); %>   
+                               
+        </div>
+    </section>
+    
