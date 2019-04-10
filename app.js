@@ -22,19 +22,6 @@ const quizSchema = new mongoose.Schema(
 
 const Quiz = mongoose.model('Quiz', quizSchema);
 
-// Quiz.create({question: 'When do you study?', 
-//               firstOption:'at school',
-//               secondOption:'in the evenings',
-//               thirdOption:'in the library'}, (err) => {
-//                 if(err){
-//                     console.log(err);
-//                 }else{
-//                     console.log('Succesfully created a new question!');
-//                 }
-//  });
-
-
-
 
 app.get('/', (req, res) => {
     res.render('home');
@@ -51,5 +38,7 @@ app.get('/nivelamento', (req, res) => {
         };
     });
 });
+
+app.post('')
 
 app.listen(3000, () => console.log('Connected on port 3000!!'));
