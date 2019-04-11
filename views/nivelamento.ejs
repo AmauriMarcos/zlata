@@ -54,32 +54,36 @@
           </div>
       </section>
 
+    <% var pos = 0 %>
+    <% var correct = 0 %>
+    <% var chA = quizzes[pos].firstOption %>
+    <% var chB = quizzes[pos].secondOption %>
+    <% var chC= quizzes[pos].thirdOption %>
+    <% var resposta= quizzes[pos].rightAnswer %>
+    <% var options; %>
+      <h2><%= pos %></h2>
+      
     <section class="nivelamento" id="nivelamento">
         <div class="container">
-            <h2 class="nivelamento-titulo">Test your English!</h2>
-           <% allQuizzes.forEach((quiz) =>{ %>
-                <h4> <%= quiz.question %></h4>
+            <h2 id='teste_status' class="nivelamento-titulo">Test your English!</h2>
+            <h6>Question <%= (pos + 1) %> of <%= quizzes.length %> </h6>
+            <div id="teste">
 
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1">
-                        <label class="form-check-label" for="exampleRadios1">
-                            <%= quiz.firstOption %>
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option2">
-                        <label class="form-check-label" for="exampleRadios1">
-                            <%= quiz.secondOption %>
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option3">
-                        <label class="form-check-label" for="exampleRadios1">
-                            <%= quiz.thirdOption %>
-                        </label>
-                   </div>              
-            <% }); %>   
-                               
+                <form action="/nivelamento" method="POST">
+                    <h2><%= quizzes[pos].question %></h2>
+                    <input type="radio" name='options' value="A"><%= chA %><br>
+                    <input type="radio" name='options' value="B"><%= chB %><br>
+                    <input type="radio" name='options' value="C"><%= chC %><br><br>
+                    <button type="submit" class="btn btn-danger btn-sm">Submit Answer</button>
+                </form>
+             
+                    <% if(opcaoEscolhida === resposta){ %>
+                        <% correct++ %>                
+                    <% }  %>
+
+                    <% pos++ %>
+
+            </div>    
         </div>
     </section>
     
