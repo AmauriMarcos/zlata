@@ -27,10 +27,6 @@ const quizSchema = new mongoose.Schema(
 
 const Quiz = mongoose.model('Quiz', quizSchema);
 
-Quiz.create({question:'What is 260 / 4?', firstOption:'55',secondOption: '75', thirdOption: '65',
-            rightAnswer:'C'}, (err) =>{
-            err ? console.log(err) : console.log('Succesfully added a new data to onePage');
-});
 
 app.get('/', (req, res) => {
     res.render('home');
@@ -40,7 +36,7 @@ app.get('/', (req, res) => {
 app.get('/nivelamento', (req, res) => {
      Quiz.find((err, data) => {
          
-        err ? console.log (err) : console.log(data); res.render('nivelamento', {quizzes:data, opcaoEscolhida: opcaoEscolhida});
+        err ? console.log (err) : res.render('nivelamento', {quizzes:data, opcaoEscolhida: opcaoEscolhida});
      });
       
 });

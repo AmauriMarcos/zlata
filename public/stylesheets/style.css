@@ -316,15 +316,20 @@ h4{
 
 /* TEST */
 
+#nivelamento{
+    padding-top: 30px;
+}
+
 #teste{
     border: #000 1px solid;
     padding: 10px 40px 40px 40px;
 }
 
+
 input{
-    display: block;
+    margin-right: 20px;
 }
 
-.choices{
-    
+form > *{
+    margin-top: 15px;
 }

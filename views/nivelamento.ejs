@@ -54,36 +54,32 @@
           </div>
       </section>
 
-    <% var pos = 0 %>
+    
     <% var correct = 0 %>
-    <% var chA = quizzes[pos].firstOption %>
-    <% var chB = quizzes[pos].secondOption %>
-    <% var chC= quizzes[pos].thirdOption %>
-    <% var resposta= quizzes[pos].rightAnswer %>
-    <% var options; %>
-      <h2><%= pos %></h2>
-      
-    <section class="nivelamento" id="nivelamento">
-        <div class="container">
-            <h2 id='teste_status' class="nivelamento-titulo">Test your English!</h2>
-            <h6>Question <%= (pos + 1) %> of <%= quizzes.length %> </h6>
-            <div id="teste">
+    <% var pos = 0 %>
 
-                <form action="/nivelamento" method="POST">
-                    <h2><%= quizzes[pos].question %></h2>
-                    <input type="radio" name='options' value="A"><%= chA %><br>
-                    <input type="radio" name='options' value="B"><%= chB %><br>
-                    <input type="radio" name='options' value="C"><%= chC %><br><br>
-                    <button type="submit" class="btn btn-danger btn-sm">Submit Answer</button>
-                </form>
-             
-                    <% if(opcaoEscolhida === resposta){ %>
-                        <% correct++ %>                
-                    <% }  %>
+  <section class="nivelamento" id="nivelamento">
+      <div class="container">
+          <h2 id='teste_status' class="nivelamento-titulo">Math Questions!</h2>
+          <h6>Question <%= (pos + 1) %> of <%= quizzes.length %></h6>
+          <div id="teste">
 
-                    <% pos++ %>
+              <form action="/nivelamento" method="POST">
+                  <h2><%= quizzes[pos].question %></h2>
+                  <input type="radio" name='options' value="A"><%= quizzes[pos].firstOption %><br>
+                  <input type="radio" name='options' value="B"><%= quizzes[pos].secondOption %><br>
+                  <input type="radio" name='options' value="C"><%= quizzes[pos].thirdOption %><br><br>
+                  <button type="submit" class="btn btn-danger btn-sm">Submit Answer</button>
+              </form>
+            
+                  <% if(opcaoEscolhida === quizzes[pos].rightAnswer){ %>
+                              <% correct++ ; %>       
+                  <% }  %>                   
+                  
+                  <% pos++ %>
 
-            </div>    
-        </div>
-    </section>
+
+          </div>    
+      </div>
+  </section>
     
