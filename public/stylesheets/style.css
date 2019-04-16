@@ -242,7 +242,7 @@ h3{
 
 #contato{
     padding-top: 7%;
-    padding-bottom: 11%;
+    padding-bottom: 14%;
     padding-right: 13%;
     padding-left: 13%;
     position: relative;
@@ -277,8 +277,11 @@ span{
 /* Footer */
 
 #myFooter{
-    
-    padding: 3% 0;
+
+    padding-bottom: 2%;
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 2%;
     background-color: #000;
     margin-bottom: 0;
     width: 100% !important;
@@ -348,4 +351,15 @@ h4{
 
 input{
     margin-right: 20px;
+}
+
+/*MAP*/
+
+#map{
+    width: 440px;
+    height: 430px;
+    position: absolute;
+    top: 150px;
+    right: 170px;
+   
 }

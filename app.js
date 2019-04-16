@@ -13,6 +13,9 @@ app.use(express.static(__dirname + '/public'));
 
 
 
+// TOKEN  pk.eyJ1IjoiYW1hdXJpc2FudG9zIiwiYSI6ImNqdWp3d2hjeTFuNDI0NHMwb2kwdzN0NDMifQ.JuOybq1Y9V2YQajGCrP3nA
+
+
 app.get('/', (req, res) => {
     res.render('home');
 });
@@ -72,6 +75,11 @@ app.post('/newsletter', (req, res) =>{
 app.post('/failure', function(req, res){
     res.redirect('/')
 })
+
+
+app.get('/location', (req, res)=>{
+    res.sendFile(__dirname + '/my_map.html');
+});
 
 
 app.listen(3000, () => console.log('Connected on port 3000!!'));

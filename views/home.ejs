@@ -165,8 +165,8 @@
                     </form>
                     <button type="button" class="btn btn-danger btn-lg">Enviar</button>
                 </div>
-                <div class="col-lg-6 col-md-12">
-                    <img src="https://camo.githubusercontent.com/6f53eeb8108ef87ccdb03ef0a8f51e9368be6e3a/68747470733a2f2f676f6f676c656d6170732e6769746875622e696f2f6a732d6d61702d6c6162656c2f73637265656e73686f742e706e67" alt="google maps" class="maps img-fluid">
+                <div class="col-lg-6 col-md-12" id="map">
+                    
                 </div>
             </div>
             <div id="myFooter">
@@ -180,6 +180,20 @@
                 </footer> 
             </div>
         </div>
+
+        <script>
+            mapboxgl.accessToken = 'pk.eyJ1IjoiYW1hdXJpc2FudG9zIiwiYSI6ImNqdWp3d2hjeTFuNDI0NHMwb2kwdzN0NDMifQ.JuOybq1Y9V2YQajGCrP3nA';
+            var map = new mapboxgl.Map({
+            container: 'map', // container id
+            style: 'mapbox://styles/mapbox/streets-v11', // stylesheet location
+            center: [-40.272749, -20.247932], // starting position [lng, lat]
+            zoom: 16 // starting zoom
+            });
+
+            var marker = new mapboxgl.Marker()
+                .setLngLat([-40.272749, -20.247932])
+                .addTo(map);
+         </script> 
 
     <% include partials/footer %>
 
