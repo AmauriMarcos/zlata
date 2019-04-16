@@ -1,4 +1,9 @@
-body{
+
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
     font-family: 'Montserrat', sans-serif;
 }
 
@@ -179,7 +184,9 @@ body{
 #planos{
     background-color: #9bf2e9;
     padding: 5% 15%;
+    
 }
+
 
 .titulo-precos{
     line-height: 1.4;
@@ -234,7 +241,11 @@ h3{
 /* Contato */
 
 #contato{
-    padding: 7% 15%;
+    padding-top: 7%;
+    padding-bottom: 11%;
+    padding-right: 13%;
+    padding-left: 13%;
+    position: relative;
 }
 
 .maps{
@@ -256,6 +267,7 @@ h3{
     line-height: 1.5;
     font-size: 1.2rem;
     color: #8f8f8f;
+
 }
 
 span{
@@ -264,10 +276,18 @@ span{
 
 /* Footer */
 
-#footer{
-    padding: 4% 15%;
-    background-color:  #000;
+#myFooter{
+    
+    padding: 3% 0;
+    background-color: #000;
+    margin-bottom: 0;
+    width: 100% !important;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
 }
+
 
 ul{
     text-align: center;
@@ -328,8 +348,4 @@ h4{
 
 input{
     margin-right: 20px;
-}
-
-form > *{
-    margin-top: 15px;
 }
