@@ -1,0 +1,94 @@
+/* Parte da direita */
+body{
+    position: relative;
+}
+
+#about{
+    padding: 2% 6%;
+}
+#ola{
+    font-size: 6rem;
+    color: #f17e7e;
+    font-family: 'Ubuntu', sans-serif;
+    margin-top: 40px;
+}
+
+#breve-descricao{
+    font-size: 1.5rem;
+    margin-bottom: 25px;
+}
+.linha{
+    width: 100%;
+    height: 4px;
+    background-color: #9bf2e9;
+}
+.navbar{
+    background-color: #fff !important;
+}
+
+.nav-link{
+
+    text-align: center;
+    position: relative;
+    left: 115px;
+    padding: 3%;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: #f17e7e;
+    font-size: 1.4rem;
+    font-family: 'Ubuntu', sans-serif;
+    margin-right: 50px;
+}
+
+.navbar-light .navbar-nav .nav-link:hover{
+    color: #9bf2e9;
+}
+
+.pequenoBloco{
+    width: 100%;
+    height: 47px;
+    margin-top: 4px;
+    background-color: #9bf2e9;
+}
+
+.conteudo p{
+    line-height: 1.2;
+    font-size: 1.2rem;
+    color: #8f8f8f;
+}
+
+.conteudo p:last-child{
+    margin-bottom: 70px;
+}
+
+.finalBloco{
+    width: 100%;
+    height: 25px;
+    background-color: #9bf2e9;
+    margin-bottom: 5px;
+
+}
+
+/* Parte da esquerda */
+
+#tituloNome{
+    font-size: 6rem;
+    font-family: 'Anton', sans-serif;
+    letter-spacing: .3em;
+    color: #f17e7e;
+}
+
+#fixo{
+    position: fixed;
+}
+
+#zlata{
+    background-image: url('/images/lecture.png');
+    width: 330px;
+    height: 430px;
+    position: absolute;
+    top: 150px;
+    left: -15px;
+
+}

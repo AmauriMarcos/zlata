@@ -1,6 +1,9 @@
+document.addEventListener("DOMContentLoaded", criaQuestao, false);
+
 const quizArray = [];
 var pos = 0;
 var correto = 0; 
+console.log(correto);
 var pergunta; 
 var op1; 
 var op2; 
@@ -50,8 +53,28 @@ function criaQuestao() {
     var h6 = seleciona('progresso');
 
     if(pos >= quizArray.length){
-        myDiv.innerHTML = "<h2>Você acertou " + correto + ' de ' + quizArray.length + " questões</h2>"
+        myDiv.innerHTML = "<h1>Finalizado<i class='fas fa-check'></i></h1>"
+        myDiv.innerHTML += "<h2>Você acertou " + correto + ' de ' + quizArray.length + " questões</h2>"
+        var nivel = document.createElement("h4");
+        if(correto <= 7){
+            var txt = document.createTextNode("Seu nível é iniciante.");
+            nivel.classList.add('advertencia');
+            nivel.appendChild(txt);
+            myDiv.appendChild(nivel);
+        } else if(correto > 7 && correto <= 17){
+            var txt = document.createTextNode("Seu nível é intermediário");
+            nivel.classList.add('advertencia');
+            nivel.appendChild(txt);
+            myDiv.appendChild(nivel);
+        } else if(correto > 17){
+            var txt = document.createTextNode("Seu nível é avançado.");
+            nivel.classList.add('advertencia');
+            nivel.appendChild(txt);
+            myDiv.appendChild(nivel);
+        }
         myDiv.innerHTML +=  "<button onClick='document.location.reload(true)' class='btn btn-danger btn-sm'>Refazer</button>";
+        
+       
         pos = 0;
         correto = 0;
         return false;
@@ -63,30 +86,60 @@ function criaQuestao() {
     op1      = quizArray[pos].opcao1;
     op2      = quizArray[pos].opcao2;   
     op3      = quizArray[pos].opcao3; 
+    resposta = quizArray[pos].resposta;
         
     myDiv.innerHTML = "<h2>" + pergunta + "</h2><br>";
-    myDiv.innerHTML += "<input type='radio' name='opcoes' value='A'> " + op1 + "<br>";
-    myDiv.innerHTML += "<input type='radio' name='opcoes' value='B'> " + op2 + '<br>';
-    myDiv.innerHTML += "<input type='radio' name='opcoes' value='C'> " + op3 + '<br><br>';
+    myDiv.innerHTML += "<input class='alternativas' type='radio' name='opcoes' value='A'> " + op1 + "<br>";
+    myDiv.innerHTML += "<input class='alternativas' type='radio' name='opcoes' value='B'> " + op2 + '<br>';
+    myDiv.innerHTML += "<input class='alternativas' type='radio' name='opcoes' value='C'> " + op3 + '<br><br>';
     myDiv.innerHTML +=  "<button onclick='verificaResposta()' class='btn btn-danger btn-sm'>Submit Answer</button>";
 
-
 };
+
+var opcoes = document.getElementsByName('opcoes');
+for(var i = 0; i < opcoes.length; i++){
+   opcoes[i].addEventListener('click', ()=>{
+      document.querySelector("#teste button").disabled = false;
+
+   });
+}
+
 
 function verificaResposta(){
     var opcoes = document.getElementsByName('opcoes');
+    var botao_clicado = false;
+    var opcao;
     for(var i = 0; i < opcoes.length; i++){
         if(opcoes[i].checked){
-            opcoes = opcoes[i].value;
+            opcao = opcoes[i].value;
+            botao_clicado = true;
+         
         } 
     }
 
-    if(opcoes === quizArray[pos].resposta){
+    var myDiv = seleciona('teste');
+    if(!botao_clicado && !myDiv.querySelector("h4")){
+        var no = document.createElement("h4");
+        var txt = document.createTextNode("Selecione uma opção antes de seguir");
+        no.classList.add('advertencia');
+        no.appendChild(txt);
+        myDiv.appendChild(no);
+        quizArray[pos].resposta
+     
+        return;
+     }
+
+
+    if(opcao === resposta){
         correto++;
+        console.log(correto);
     }
 
-    pos++;
-    criaQuestao();
+    if(botao_clicado){
+        pos++;
+        criaQuestao();
+    }
+
+    
 };
 
-window.addEventListener('load', criaQuestao, false);

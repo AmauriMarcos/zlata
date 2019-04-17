@@ -68,8 +68,8 @@ html, body {
 
 .navbar-light .navbar-nav .nav-link{
     color: #f17e7e;
-    font-size: 1.2rem;
-    font-family: 'Ubuntu', sans-serif;
+    font-size: 1.4rem;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .navbar-light .navbar-nav .nav-link:hover{
@@ -149,7 +149,7 @@ html, body {
 .img-test{
     width: 330px;
     height: 330px;
-    margin-left: 10px;
+    margin-left: 15px;
 }
 
 .chamada-test{
@@ -345,15 +345,26 @@ h4{
     padding-top: 30px;
 }
 
-#teste{
-    border: #000 1px solid;
-    padding: 10px 40px 40px 40px;
+#progresso{
+    font-weight: bold;
 }
 
+#teste{
+    border: #9bf2e9 1px solid;
+    padding: 25px 40px 40px 40px;
+    font-size: 1.3rem;
+    
+}
+
+#teste_status{
+    color: #f17e7e;
+}
 
 input{
     margin-right: 20px;
+    
 }
+
 
 /*MAP*/
 
@@ -506,9 +517,16 @@ input{
 }
 
 
+/* JS QUIZ STYLE */
 
+.advertencia{
+    color: red;
+    font-size: 1.2rem;
+}
 
-
+.esconder{
+    display: none;
+}
 
 
 

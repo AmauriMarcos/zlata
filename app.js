@@ -9,16 +9,35 @@ const bodyParser = require('body-parser'),
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(express.static(__dirname + '/public'));
-// app.use(express.static(path.join(__dirname, 'public')))
+
+mongoose.connect('mongodb://localhost:27017/contact_form', {useNewUrlParser: true});
+
+const contactFormSchema = new mongoose.Schema(
+    {
+        name: String,
+        email: String,
+        message: String
+    }
+)
+
+const Contact = mongoose.model('Contact', contactFormSchema);
 
 
 
-// TOKEN  pk.eyJ1IjoiYW1hdXJpc2FudG9zIiwiYSI6ImNqdWp3d2hjeTFuNDI0NHMwb2kwdzN0NDMifQ.JuOybq1Y9V2YQajGCrP3nA
-
-
-app.get('/', (req, res) => {
+app.get('/', (req, res) => {   
+ 
     res.render('home');
 });
+
+
+app.post('/', (req, res) => {
+    const contact = req.body.contact;
+    console.log(contact);   
+});
+
+app.get('/about_me', (req, res) =>{
+    res.render('about_me');
+}); 
 
 app.get('/nivelamento', (req, res) =>{
     res.render('nivelamento');
@@ -71,6 +90,8 @@ app.post('/newsletter', (req, res) =>{
         }
     });
 });
+
+
 
 app.post('/failure', function(req, res){
     res.redirect('/')
