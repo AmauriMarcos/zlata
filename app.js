@@ -16,6 +16,7 @@ const contactFormSchema = new mongoose.Schema(
     {
         name: String,
         email: String,
+        telefone: Number,
         message: String
     }
 )
@@ -25,15 +26,18 @@ const Contact = mongoose.model('Contact', contactFormSchema);
 
 
 app.get('/', (req, res) => {   
- 
-    res.render('home');
+     res.render('home');
 });
 
 
 app.post('/', (req, res) => {
-    const contact = req.body.contact;
-    console.log(contact);   
+    const contato = req.body.contact;
+    Contact.create({name: contato.name, email: contato.email, telefone: contato.phone, message: contato.message}, (err) =>{
+        err ? console.log(err) : console.log('Succesfully created a new contact');
+    })
+    res.redirect('/'); 
 });
+
 
 app.get('/about_me', (req, res) =>{
     res.render('about_me');

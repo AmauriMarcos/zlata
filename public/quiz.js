@@ -53,15 +53,17 @@ function criaQuestao() {
     var h6 = seleciona('progresso');
 
     if(pos >= quizArray.length){
-        myDiv.innerHTML = "<h1>Finalizado<i class='fas fa-check'></i></h1>"
-        myDiv.innerHTML += "<h2>Você acertou " + correto + ' de ' + quizArray.length + " questões</h2>"
-        var nivel = document.createElement("h4");
-        if(correto <= 7){
+        myDiv.innerHTML = "<h1 id='finalizado'>Finalizado <i id='meuIcone' class='fas fa-check'></i></h1>"
+      
+        myDiv.innerHTML += "<h2 id='subMsg'>Você acertou " + correto + ' de ' + quizArray.length + " questões</h2>"
+        var nivel = document.createElement("h3");
+        nivel.classList.add('finalQuiz');
+        if(correto <= 11){
             var txt = document.createTextNode("Seu nível é iniciante.");
             nivel.classList.add('advertencia');
             nivel.appendChild(txt);
             myDiv.appendChild(nivel);
-        } else if(correto > 7 && correto <= 17){
+        } else if(correto > 12 && correto <= 17){
             var txt = document.createTextNode("Seu nível é intermediário");
             nivel.classList.add('advertencia');
             nivel.appendChild(txt);
@@ -88,7 +90,7 @@ function criaQuestao() {
     op3      = quizArray[pos].opcao3; 
     resposta = quizArray[pos].resposta;
         
-    myDiv.innerHTML = "<h2>" + pergunta + "</h2><br>";
+    myDiv.innerHTML = "<h2 id='perguntaQuiz'>" + pergunta + "</h2><br>";
     myDiv.innerHTML += "<input class='alternativas' type='radio' name='opcoes' value='A'> " + op1 + "<br>";
     myDiv.innerHTML += "<input class='alternativas' type='radio' name='opcoes' value='B'> " + op2 + '<br>';
     myDiv.innerHTML += "<input class='alternativas' type='radio' name='opcoes' value='C'> " + op3 + '<br><br>';
