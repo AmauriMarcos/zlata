@@ -1,0 +1,118 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-color: #1CD8D2;  /* fallback for old browsers */
+    background-color: -webkit-linear-gradient(to right, #93EDC7, #1CD8D2);  /* Chrome 10-25, Safari 5.1-6 */
+    background-color: linear-gradient(to right, #93EDC7, #1CD8D2); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+#box{
+    height: 200px;
+    width: 1000px;
+    background-color: #2d2d2d;
+    border-radius: 5px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#main{
+    height: 400px;
+    width: 450px;
+    background-color: white;
+    border-radius: 5px;
+    position: absolute;
+    top: 50%;
+    left: 70%;
+    transform: translate(-50%, -50%);
+    z-index: 99;
+
+}
+
+#loginForm, #signupForm{
+    position: absolute;
+    top: 50%;
+    left: 70%;
+    transform: translate(-50%, -50%);
+    z-index: 999;
+}
+
+#signupForm{
+    top: 45%;
+    left: 75%;
+    visibility: hidden;
+
+}
+
+#loginForm h1, #signupForm h1{
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    font-size: 25px;
+    color: turquoise;
+
+}
+
+#loginForm input, #signupForm input{
+    height: 40px;
+    width: 300px;
+    border: 0;
+    outline: none;
+    border-bottom: 1px solid black;
+    margin: 5px;
+}
+
+#loginForm button, #signupForm button{
+    height: 35px;
+    width: 130px;
+    background-color: turquoise;
+    font-family: monospace;
+    font-size: 1rem;
+    color: white;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    margin-top: 30px;
+    margin-left: 175px;
+}
+
+#login_btn, #signup_btn{
+    height: 35px;
+    width:120px;
+    background-color:transparent;
+    text-transform: uppercase;
+    color: white;
+    border: 1px solid white;
+    border-radius: 5px;
+    outline: none;
+    position: absolute;
+    left: 75%;
+    top: 65%;
+    transform: translate(-50%, -50%);
+    transition: all .5s;
+}
+
+#signup_btn{
+    left: 25%;
+}
+
+#login_btn:hover, #signup_btn:hover{
+    background-color: #f17e7e;
+    color: #fff;
+    cursor: pointer;
+}
+
+#login_msg, #signup_msg{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 25px;
+    color: white;
+    position: absolute;
+    top: 35%;
+    left: 75%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}
+
+#signup_msg{
+    left: 25%;
+}

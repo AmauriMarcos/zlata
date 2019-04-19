@@ -25,8 +25,8 @@ html, body {
 
 #title{
     /* background-color: #00d0de; */
-    background-color: #9bf2e9;
-    
+    background-color:  #9bf2e9;
+       
 }
 
 .container-fluid{
@@ -43,8 +43,8 @@ html, body {
 }
 
 .nav-item{
-    padding: 0 18px;
-    font-size: 18px;
+    padding: 0 8px;
+    font-size: 1.4rem;
 }
 
 .nav-item:hover{
@@ -68,7 +68,7 @@ html, body {
 
 .navbar-light .navbar-nav .nav-link{
     color: #f17e7e;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     font-family: 'Montserrat', sans-serif;
 }
 
@@ -186,7 +186,9 @@ html, body {
 /* Planos */
 
 #planos{
-    background-color: #9bf2e9;
+    background: #1CD8D2;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #93EDC7, #1CD8D2);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #93EDC7, #1CD8D2); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     padding: 5% 15%;
     
 }
@@ -286,7 +288,10 @@ span{
     padding-left: 0;
     padding-right: 0;
     padding-top: 2%;
-    background-color: #000;
+    background: #000000;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #434343, #000000);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #434343, #000000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    
     margin-bottom: 0;
     width: 100% !important;
     position: absolute;
