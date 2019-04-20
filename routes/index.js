@@ -1,4 +1,5 @@
 const express = require('express');
+const Contact = require('../models/contact_form');
 const router  = express.Router();
 
 router.get('/', (req, res) => {   
@@ -19,11 +20,10 @@ router.get('/about_me', (req, res) =>{
    res.render('about_me');
 }); 
 
+
 router.get('/nivelamento', (req, res) =>{
    res.render('nivelamento');
 });
-
-
 
 
 router.post('/failure', function(req, res){
