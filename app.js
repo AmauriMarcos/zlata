@@ -9,6 +9,7 @@ const bodyParser      = require('body-parser'),
       indexRoute      = require('./routes/index'),
       request         = require('request'),
       ejs             = require('ejs'),
+      encrypt         = require('mongoose-encryption'),
       express         = require('express'),
       app             = express();
 
@@ -40,9 +41,7 @@ app.post('/login', (req, res) => {
                 if(foundUser.password === password){
                     res.render('nivelamento');
                 } 
-            } else {
-                res.render('about_me');
-            }
+            } 
         }
     });
 
@@ -55,7 +54,7 @@ app.get('/cadastrar', (req, res) => {
 app.post('/cadastrar', (req, res) =>{
     const cadastro = req.body.cadastro;
     User.create({nickname: cadastro.nickname, email: cadastro.email, password: cadastro.password},(err) => {
-             err ? console.log(err) : console.log('Succesfully added a new user!');  res.render('nivelamento');
+             err ? console.log(err) : console.log('Successfully added a new user!');  res.render('home');
             
     });
 })
