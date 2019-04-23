@@ -1,3 +1,4 @@
+require('dotenv').config();
 const bodyParser      = require('body-parser'),
       cookieParser    = require('cookie-parser'),
       session         = require('express-session'),
@@ -39,6 +40,8 @@ app.post('/login', (req, res) => {
         } else {
             if(foundUser){
                 if(foundUser.password === password){
+                    console.log(foundUser.password);
+                    console.log(password);
                     res.render('nivelamento');
                 } 
             } 
