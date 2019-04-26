@@ -14,8 +14,9 @@ const bodyParser      = require('body-parser'),
       app             = express();
 
 
- const md5 = require('md5');
-  
+
+ const bcrypt = require('bcrypt');
+ const saltRounds = 10;
        
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended:true}));
@@ -34,18 +35,18 @@ app.get('/login', (req, res) => {
 
 app.post('/login', (req, res) => {
     const email = req.body.login.email;
-    const password = md5(req.body.login.password);
+    const password = req.body.login.password;
 
     User.findOne({email: email}, (err, foundUser) =>{
         if(err){
             console.log(err);
         } else {
             if(foundUser){
-                if(foundUser.password === password){
-                    console.log(foundUser.password);
-                    console.log(password);
-                    res.render('nivelamento');
-                } 
+                bcrypt.compare(password, foundUser.password, (err, result) =>{
+                    if(result === true){
+                        res.render('nivelamento');
+                    };
+                });                                                
             } 
         }
     });
@@ -58,11 +59,13 @@ app.get('/cadastrar', (req, res) => {
 
 app.post('/cadastrar', (req, res) =>{
     const cadastro = req.body.cadastro;
-    User.create({nickname: cadastro.nickname, email: cadastro.email, password: md5(cadastro.password)},(err) => {
-             err ? console.log(err) : console.log('Successfully added a new user!');  res.render('home');
-            
-    });
-})
+    bcrypt.hash(cadastro.password, saltRounds, (err, hash) => {
+        User.create({nickname: cadastro.nickname, email: cadastro.email, password: hash},(err) => {
+                 err ? console.log(err) : console.log('Successfully added a new user!');  res.render('home');
+                
+        });
+    });  
+});
 
 
 
