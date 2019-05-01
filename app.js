@@ -1,75 +1,172 @@
-require('dotenv').config();
-const bodyParser      = require('body-parser'),
-      cookieParser    = require('cookie-parser'),
-      session         = require('express-session'),
-      flash           = require('express-flash'),
-      mongoose        = require('mongoose'),
-      Contact         = require('./models/contact_form'),
-      User            = require('./models/user'),
-      newsletterRoute = require('./routes/newsletter'),
-      indexRoute      = require('./routes/index'),
-      request         = require('request'),
-      ejs             = require('ejs'),
-      express         = require('express'),
-      app             = express();
 
+const bodyParser            = require('body-parser'),
+      session               = require('express-session'),
+      passport              = require('passport'),
+      passportLocalMongoose = require('passport-local-mongoose'),
+      cookieParser          = require('cookie-parser'),     
+      flash                 = require('express-flash'),
+      mongoose              = require('mongoose'),
+      Contact               = require('./models/contact_form'),
+      User                  = require('./models/user'),
+      newsletterRoute       = require('./routes/newsletter'),
+      indexRoute            = require('./routes/index'),
+      request               = require('request'),
+      ejs                   = require('ejs'),
+      express               = require('express'),
+      app                   = express();
 
+const LocalStrategy = require('passport-local').Strategy;
 
- const bcrypt = require('bcrypt');
- const saltRounds = 10;
-       
 app.set('view engine', 'ejs');
+mongoose.set('useCreateIndex', true);
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(express.static(__dirname + '/public'));
+app.use(cookieParser());
 
 app.use(indexRoute);
 app.use(newsletterRoute);
+
+app.use(session(
+    {
+        secret: 'Gosto de jogar video game.',
+        resave: false,
+        saveUninitialized: false       
+    }
+));
+
+app.use(passport.initialize());
+app.use(passport.session());
+
+app.use(function(req, res, next){
+    res.locals.currentUser = req.user;
+    next();
+});
 
 mongoose.connect('mongodb://localhost:27017/English_for_Kids', {useNewUrlParser: true});
 
 
 
-app.get('/login', (req, res) => {
-    res.render('registrar');
+passport.serializeUser(User.serializeUser());
+
+passport.deserializeUser(User.deserializeUser());
+
+app.get('/', (req, res) => {  
+    console.log(req.user);
+    res.render('home', {currentUser: req.user});
+
 });
 
-app.post('/login', (req, res) => {
-    const email = req.body.login.email;
-    const password = req.body.login.password;
 
-    User.findOne({email: email}, (err, foundUser) =>{
-        if(err){
-            console.log(err);
-        } else {
-            if(foundUser){
-                bcrypt.compare(password, foundUser.password, (err, result) =>{
-                    if(result === true){
-                        res.render('nivelamento');
-                    };
-                });                                                
-            } 
+app.get('/login', (req, res) => {
+    res.render('login');
+});
+
+
+app.get('/register', (req, res) => {
+     res.render('register');  
+});
+
+
+app.get('/nivelamento', isLoggedIn, (req, res) =>{
+      res.render("nivelamento");
+});    
+
+
+app.get('/newsletter', isLoggedIn, (req, res) =>{  
+
+    res.render('newsletter');    
+
+});
+
+app.post('/newsletter', (req, res) =>{
+    const news = req.body.news;
+    console.log(news.email);
+
+    const data = {
+        members: [
+            {
+                email_address: news.email,
+                status: 'subscribed',
+                merge_fields: {
+                    FNAME: news.nome,
+                    LNAME: news.sobrenome
+                }
+
+            }
+        ]
+    };
+
+    const jsonData = JSON.stringify(data);
+
+    const options = {
+        url: 'https://us20.api.mailchimp.com/3.0/lists/14ef3243b9',
+        method: 'POST',
+        headers: {
+            'Authorization': 'zlata 9d62f9b32fd6b90b686110584073b911-us20'
+        },
+        body: jsonData
+    };
+
+    request(options, (error, response, body) =>{
+        if(error){
+            res.sendFile(__dirname + "/failure.html")
+            console.log(response.statusCode);
+        } else{
+            if(response.statusCode === 200){
+                console.log(response.statusCode);
+                res.sendFile(__dirname + "/success.html")
+            } else{
+                res.sendFile(__dirname + "/failure.html")
+            }            
         }
     });
-
 });
 
-app.get('/cadastrar', (req, res) => {
-     res.render('registrar');  
+app.post('/register', (req, res) =>{
+    User.register({username: req.body.username}, req.body.password, function(err, user){
+        if (err) {
+          console.log(err);
+          res.redirect("/register");
+        } else {
+          passport.authenticate("local")(req, res, function(){
+            res.redirect("/");
+          });
+        }
+    });
 });
 
-app.post('/cadastrar', (req, res) =>{
-    const cadastro = req.body.cadastro;
-    bcrypt.hash(cadastro.password, saltRounds, (err, hash) => {
-        User.create({nickname: cadastro.nickname, email: cadastro.email, password: hash},(err) => {
-                 err ? console.log(err) : console.log('Successfully added a new user!');  res.render('home');
-                
-        });
-    });  
+app.get('/logout', function(req, res){
+    req.logout();
+    res.redirect('/');
 });
 
 
+app.post('/login', (req, res) => {
+    const user = new User({
+            username: req.body.username,
+            password: req.body.password
+    });
+
+    req.login(user, function(err){
+        if (err) {
+            console.log(err);
+            res.redirect("/login");
+        } else {
+            passport.authenticate("local")(req, res, function(){
+                res.redirect("/");
+            });
+        }
+    });
+});
+
+function isLoggedIn(req, res, next){
+    if(req.isAuthenticated()){
+        return next();
+    }
+
+    res.redirect('/login');
+}
 
 
 app.listen(3000, () => console.log('Connected on port 3000!!'));
 
-//	1Scua7qAsWSF8DZxm9uSjh2JqLEUeMGi //Tomtom API Key

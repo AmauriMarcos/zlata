@@ -1,5 +1,3 @@
-
-
 html, body {
     margin: 0;
     padding: 0;
@@ -44,7 +42,7 @@ html, body {
 
 .nav-item{
     padding: 0 8px;
-    font-size: 1.4rem;
+    font-size: 1.2rem;
 }
 
 .nav-item:hover{
@@ -68,7 +66,7 @@ html, body {
 
 .navbar-light .navbar-nav .nav-link{
     color: #f17e7e;
-    font-size: 1.1rem;
+    font-size: 1rem;
     font-family: 'Montserrat', sans-serif;
 }
 

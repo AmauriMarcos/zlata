@@ -6,43 +6,17 @@ body{
     background-color: linear-gradient(to right, #93EDC7, #1CD8D2); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
-#box{
-    height: 200px;
-    width: 1000px;
-    background-color: #2d2d2d;
-    border-radius: 5px;
+
+#loginForm, #signupForm{
     position: absolute;
-    top: 50%;
+    top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
 
-#main{
-    height: 400px;
-    width: 450px;
-    background-color: white;
-    border-radius: 5px;
-    position: absolute;
-    top: 50%;
-    left: 70%;
-    transform: translate(-50%, -50%);
-    z-index: 99;
-
-}
-
-#loginForm, #signupForm{
-    position: absolute;
-    top: 50%;
-    left: 70%;
-    transform: translate(-50%, -50%);
-    z-index: 999;
-}
-
 #signupForm{
-    top: 45%;
-    left: 75%;
-    visibility: hidden;
-
+    top: 40%;
+    left: 50%;
 }
 
 #loginForm h1, #signupForm h1{
@@ -72,8 +46,8 @@ body{
     border: none;
     outline: none;
     border-radius: 5px;
-    margin-top: 30px;
-    margin-left: 175px;
+    margin-top: 70px;
+
 }
 
 #login_btn, #signup_btn{

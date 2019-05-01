@@ -1,37 +1,76 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <meta charset="UTF-8">
-        <title>Inglês para crianças</title>
-        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,800" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Ubuntu:700" rel="stylesheet">
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-        <link href="https://fonts.googleapis.com/css?family=Poiret+One" rel="stylesheet">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-        <!--Maps links-->
-        <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
-        <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.1/mapbox-gl.js'></script>
-        <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.1/mapbox-gl.css' rel='stylesheet' />
-        
-        
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/js/bootstrap.min.js" integrity="sha384-7aThvCh9TypR7fIc2HV4O/nFMVCBwyIUKL8XCtKE+8xgCgl/PQGuFsvShjr74PBp" crossorigin="anonymous"></script>
-        
-        <link rel="stylesheet" type="text/css" href="stylesheets/cadastro.css" />
-    </head>
-    <body>
-        <form action="/login" method="POST" class="form-signin">
-            <h1 class="h3 mb-3 font-weight-normal">Login</h1>
-            <label>Nome de usuário</label>
-            <input type="text"  name="login[name]" class="form-control top" placeholder="Nome" required autofocus>
-           
-            <label>Senha</label>
-            <input type="password" class="form-control" placeholder="Password">      
-        
-            <button class="btn btn-lg btn-primary btn-block" type="submit">Entrar</button>
-            <p class="mt-5 mb-3 text-muted">&copy; 2019</p>
-        </form>
-    </body>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../../../favicon.ico">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,800" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu:700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Poiret+One" rel="stylesheet">
+    <title>Signin Template for Bootstrap</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/sign-in/">
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+    <!-- Custom styles for this template -->
+    <link href="/stylesheets/newsletter.css" rel="stylesheet">
+    <link href="/stylesheets/cadastro.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="stylesheets/style.css" />
+  </head>
+
+  <body>
+        <section class="cabecalho" id="title">
+                <div class="container-fluid">
+                    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                        <div class="container container-nav download-button">
+                            <a class="navbar-brand" href="#"><i class="fas fa-2x fa-graduation-cap"></i></a>
+                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                              <span class="navbar-toggler-icon"></span>
+                            </button>
+                          
+                            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                                <ul class="navbar-nav mr-auto">
+                                    <li class="nav-item">
+                                      <a class="nav-link" href="/about_me">Sobre mim</a>
+                                    </li>
+                                    <li class="nav-item">
+                                      <a class="nav-link itens-deslocaveis" href="/#planos">Planos</a>
+                                    </li>
+                                    <li class="nav-item">
+                                      <a class="nav-link itens-deslocaveis" href="/nivelamento">Teste seu Inglês</a>
+                                    </li>   
+                                    <li class="nav-item">
+                                        <a class="nav-link itens-deslocaveis" href="/#contato">Contato</a>
+                                    </li>  
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/newsletter">Newsletter</a>
+                                    </li>                                                                  
+                                  </ul> 
+                                  <ul class="navbar-nav ml-auto">
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/register">Registrar</a>
+                                    </li> 
+
+                                </ul>                  
+                            </div>
+                        </div>
+                      </nav>
+                </div>
+            </section>
+            <div class="linha"></div>
+    <div class="text-center">
+        <form action="/login" id="loginForm" method="POST">
+            <h1>Login</h1>
+            <input name="username" type="email" placeholder="Email"/><br>
+            <input name="password" type="password" placeholder="Senha"/><br>
+            <button type="submit">Entrar</button>
+        </form>     
+    </div>
+   
+  </body>
 </html>

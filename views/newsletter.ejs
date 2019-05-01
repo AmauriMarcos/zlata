@@ -1,66 +1,6 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="../../../../favicon.ico">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,800" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Ubuntu:700" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css?family=Poiret+One" rel="stylesheet">
-    <title>Signin Template for Bootstrap</title>
+<% include partials/header %>
 
-    <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/sign-in/">
-
-    <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-
-    <!-- Custom styles for this template -->
-    <link href="/stylesheets/newsletter.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="stylesheets/style.css" />
-  </head>
-
-  <body>
-        <section class="cabecalho" id="title">
-                <div class="container-fluid">
-                    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                        <div class="container container-nav download-button">
-                            <a class="navbar-brand" href="#"><i class="fas fa-2x fa-graduation-cap"></i></a>
-                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                              <span class="navbar-toggler-icon"></span>
-                            </button>
-                          
-                            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                                <ul class="navbar-nav mr-auto">
-                                  <li class="nav-item">
-                                    <a class="nav-link" href="/">Sobre mim</a>
-                                  </li>
-                                  <li class="nav-item">
-                                    <a class="nav-link itens-deslocaveis" href="/#planos">Planos</a>
-                                  </li>
-                                  <li class="nav-item">
-                                    <a class="nav-link itens-deslocaveis" href="/nivelamento">Nivelamento</a>
-                                  </li>   
-                                  <li class="nav-item">
-                                      <a class="nav-link itens-deslocaveis" href="/#contato">Contato</a>
-                                  </li>                                            
-                                </ul> 
-                                <ul class="navbar-nav ml-auto">
-                                  <li class="nav-item">
-                                      <a class="nav-link" href="/newsletter">Newsletter</a>
-                                  </li> 
-                                  <li class="nav-item">
-                                      <a class="nav-link" href="#">Login</a>
-                                  </li> 
-                              </ul>                   
-                            </div>
-                        </div>
-                      </nav>
-                </div>
-            </section>
-            <div class="linha"></div>
+    <div class="linha"></div>
     <div class="text-center">
         <form action="/newsletter" method="POST" class="form-signin">
             <img class="mb-4" src="images/owl.png" alt="" width="72" height="72">
