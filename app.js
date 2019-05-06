@@ -15,7 +15,11 @@ const bodyParser            = require('body-parser'),
       express               = require('express'),
       app                   = express();
 
-const LocalStrategy = require('passport-local').Strategy;
+const LocalStrategy  = require('passport-local').Strategy;
+// const GoogleStrategy = require('passport-google-oauth20').Strategy;
+const findOrCreate   = require('mongoose-findorcreate');
+const nodeMailer = require('nodemailer');
+
 
 app.set('view engine', 'ejs');
 mongoose.set('useCreateIndex', true);
@@ -50,12 +54,55 @@ passport.serializeUser(User.serializeUser());
 
 passport.deserializeUser(User.deserializeUser());
 
+// passport.use(new GoogleStrategy({
+//     clientID: process.env.CLIENT_ID,
+//     clientSecret: process.env.CLIENT_SECRET,
+//     callbackURL: "http://localhost:3000/auth/google/nivelamento",
+//     userProfileURL:"https://www.googleapis.com/oauth2/v3/userinfo"
+//   },
+//   function(accessToken, refreshToken, profile, cb) {
+//     User.findOrCreate({ googleId: profile.id }, function (err, user) {
+//       return cb(err, user);
+//     });
+//   }
+// ));
+
+
+
 app.get('/', (req, res) => {  
     console.log(req.user);
     res.render('home', {currentUser: req.user});
 
 });
 
+
+
+app.post('/', (req, res) => {
+    let transporter = nodeMailer.createTransport({
+        host: 'smtp.gmail.com',
+        port: 465,
+        secure: true,
+        auth: {
+            user: 'zlata.englishforkids@gmail.com',
+            pass: 'zlata123'
+        }
+    });
+    let mailOptions = {
+        from: '"' + req.body.contact.name + '" <' + req.body.contact.email + '>', // sender address
+        to: 'miljkovicmarija85@gmail.com',
+        subject: 'English for Kids recebeu uma nova mensagem', // list of receivers
+        html: '<p>'+req.body.contact.message+'</p>' // html body
+    };
+
+    transporter.sendMail(mailOptions, (error, info) => {
+        if (error) {
+            return console.log(error);
+        }
+        console.log('Message %s sent: %s', info.messageId, info.response);
+               res.render("home");
+        });   
+ });
+ 
 
 app.get('/login', (req, res) => {
     res.render('login');
