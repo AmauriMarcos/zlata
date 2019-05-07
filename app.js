@@ -46,7 +46,7 @@ app.use(function(req, res, next){
     next();
 });
 
-mongoose.connect('mongodb://localhost:27017/English_for_Kids', {useNewUrlParser: true});
+mongoose.connect('mongodb+srv://admin-amauri:Amauri12@cluster0-1fhpe.mongodb.net/English_for_Kids', {useNewUrlParser: true});
 
 
 
