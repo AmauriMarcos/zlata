@@ -16,7 +16,6 @@ const bodyParser            = require('body-parser'),
       app                   = express();
 
 const LocalStrategy  = require('passport-local').Strategy;
-// const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const findOrCreate   = require('mongoose-findorcreate');
 const nodeMailer = require('nodemailer');
 
@@ -24,7 +23,7 @@ const nodeMailer = require('nodemailer');
 app.set('view engine', 'ejs');
 mongoose.set('useCreateIndex', true);
 app.use(bodyParser.urlencoded({extended:true}));
-app.use(express.static(__dirname + '/public','favicon.ico'));
+app.use(express.static(__dirname + '/public'));
 app.use(cookieParser());
 
 app.use(indexRoute);
@@ -51,25 +50,11 @@ mongoose.connect('mongodb+srv://admin-amauri:Amauri12@cluster0-1fhpe.mongodb.net
 
 
 passport.serializeUser(User.serializeUser());
-
 passport.deserializeUser(User.deserializeUser());
 
-// passport.use(new GoogleStrategy({
-//     clientID: process.env.CLIENT_ID,
-//     clientSecret: process.env.CLIENT_SECRET,
-//     callbackURL: "http://localhost:3000/auth/google/nivelamento",
-//     userProfileURL:"https://www.googleapis.com/oauth2/v3/userinfo"
-//   },
-//   function(accessToken, refreshToken, profile, cb) {
-//     User.findOrCreate({ googleId: profile.id }, function (err, user) {
-//       return cb(err, user);
-//     });
-//   }
-// ));
 
 
-
-app.get('*', (req, res) => {  
+app.get('/', (req, res) => {  
  
     res.render('home', {currentUser: req.user});
 
