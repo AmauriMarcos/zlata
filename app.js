@@ -214,6 +214,12 @@ function isLoggedIn(req, res, next){
     res.redirect('/login');
 }
 
+let port = process.env.PORT;
+if (port == null || port == "") {
+  port = 3000;
+}
+app.listen(port);
 
-app.listen(3000, () => console.log('Connected on port 3000!!'));
+
+app.listen(port, () => console.log('Server has started successfully!'));
 
