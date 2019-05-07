@@ -69,8 +69,8 @@ passport.deserializeUser(User.deserializeUser());
 
 
 
-app.get('/', (req, res) => {  
-    console.log(req.user);
+app.get('*', (req, res) => {  
+ 
     res.render('home', {currentUser: req.user});
 
 });
