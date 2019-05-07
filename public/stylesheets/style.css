@@ -360,6 +360,71 @@ h4{
 /* MEDIA QUERYS */
 
 /* Phone */
+@media screen and (max-width:600px){
+    .books{
+        display: none;
+        background-image: url('/images/graduate.png');
+    }
+
+    .titulo{
+        font-size: 3rem;
+      
+    }
+
+    #title{
+        padding-bottom: 7%;
+    }
+
+    .img-study{
+        margin-bottom: 50px;
+    }
+
+    .img-test{
+        position: relative;
+        bottom:510px;
+    }
+
+    .chamada-test{
+        position: relative;
+        top: 330px;
+        text-align: left;
+        margin-left: 5px;
+    }
+
+    .img-vagas{
+        position: relative;
+        bottom: 55px;
+    }
+
+    .chamada-vagas{
+        position: relative;
+        bottom: 50px;
+    }
+
+    .card{
+        margin-bottom: 30px;
+    }
+
+    #map{
+        display: none;
+    }
+   
+    #contato{
+        padding-top: 7%;
+        padding-bottom: 25%;
+        padding-right: 13%;
+        padding-left: 13%;
+        position: relative;
+    }
+
+    .nav-item{
+        text-align: left;
+    
+    }
+  
+}
+
+/* Phone */
 @media screen and (max-width:768px){
     .books{
         display: none;
